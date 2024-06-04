@@ -6,7 +6,8 @@ return {
 			options = {
 				theme = 'kanagawa',
 				disabled_filetypes = {
-					'dashboard'
+					'dashboard',
+					'undotree'
 				}
 			}
 		}
