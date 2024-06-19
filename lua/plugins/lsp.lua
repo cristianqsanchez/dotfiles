@@ -2,8 +2,7 @@ return {
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
-    lazy = true,
-    config = false,
+		lazy = false,
     init = function()
       -- Disable automatic setup, we are doing it manually
       vim.g.lsp_zero_extend_cmp = 0
@@ -66,10 +65,20 @@ return {
 
       --- if you want to know more about lsp-zero and mason.nvim
       --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-      lsp_zero.on_attach(function(client, bufnr)
+      lsp_zero.on_attach(function(_, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
         lsp_zero.default_keymaps({buffer = bufnr})
+
+				vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = 'Go to definition' })
+				vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { desc = 'Show symbol definition' })
+				vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, { desc = 'Search symbol in Workspace' })
+				vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { desc = 'Open diagnostic' })
+				vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { desc = 'Show code actions' })
+				vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, { desc = 'Find references' })
+				vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { desc = 'Rename symbol' })
+				vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { desc = 'Next diagnostic' })
+				vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { desc = 'Prev diagnostic' })
       end)
 
       require('mason-lspconfig').setup({
