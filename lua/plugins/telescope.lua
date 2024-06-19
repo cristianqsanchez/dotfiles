@@ -5,16 +5,13 @@ return {
 		'nvim-lua/plenary.nvim'
 	},
 	config = function()
-		vim.keymap.set("n", "<leader><leader>", function()
-			vim.cmd("Telescope")
-		end)
+		require('telescope').setup({})
 
-		vim.keymap.set("n", "<leader>f", function()
-			vim.cmd("Telescope fd")
-		end)
-
-		vim.keymap.set("n", "<leader>s", function()
-			vim.cmd("Telescope live_grep")	
-		end)
+		local builtin = require('telescope.builtin')
+		vim.keymap.set('n', '<leader>pf', builtin.fd, { desc = 'Search project file' })
+		vim.keymap.set('n', '<leader>ps', function()
+			builtin.grep_string({ search = vim.fn.input("Grep > ") })
+		end, { desc = 'Search in project' })
+		vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search git file' })
 	end
 }
