@@ -1,12 +1,11 @@
-require('plugins.oil')
-
 vim.g.mapleader = " "
+
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = 'Open explorer' })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("i", "jj", "<Esc>")
 
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
