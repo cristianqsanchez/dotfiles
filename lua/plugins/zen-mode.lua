@@ -12,7 +12,7 @@ return {
 				},
 
 				plugins = {
-					alacritty = { enabled = true, font = "13" }
+					alacritty = { enabled = true, font = "11" }
 				},
 
 				on_open = function()
