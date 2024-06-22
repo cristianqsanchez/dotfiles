@@ -24,6 +24,8 @@ return {
 					FloatBorder = { bg = theme.ui.bg_p1 },
 					FloatTitle = { bg = theme.ui.bg_p1 },
 					NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+          StatusLine = { bg = theme.ui.bg_p1 },
+          StatusLineNC = { bg = theme.ui.bg_m1, fg = theme.ui.special },
 
 					WhichKeyFloat = { bg = theme.ui.bg_m3 },
 
